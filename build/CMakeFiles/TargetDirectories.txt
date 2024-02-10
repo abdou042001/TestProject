@@ -1,0 +1,3 @@
+/home/abdou/Test/build/CMakeFiles/BinPacking3D.dir
+/home/abdou/Test/build/CMakeFiles/edit_cache.dir
+/home/abdou/Test/build/CMakeFiles/rebuild_cache.dir
