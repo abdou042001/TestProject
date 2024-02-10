@@ -3,7 +3,8 @@
 
 
 /*
-Important : l'algo ne fonctionne pas encore, il doit encore etre complété mais voici l'idée
+Important : l'algo ne fonctionne pas encore, il doit encore etre optimiser et complété (Container::updateMaxItems manquant) 
+mais voici l'idée
 Algo ::
 1. Tri des objets par ordre decroissant de leur taille totale (longueur * largeur * hauteur).
 2. Initialisation des conteneurs vides.
@@ -28,7 +29,7 @@ bool compareTotalSize(const Item& item1, const Item& item2) {
 }
 
 
-// n'est pas optimisé et ne vas pas marchier sans completer la methode Container::updateMaxItems. Manque de temps :/
+// n'est pas optimisé et ne va pas marcher sans compléter la methode Container::updateMaxItems. Manque de temps :/
 std::vector<Container> binPackingAlgorithm(std::vector<Item>& items, int length, int width, int height) {
     // Tri des objets par taille totale décroissante
     std::sort(items.begin(), items.end(), compareTotalSize);
@@ -44,6 +45,8 @@ std::vector<Container> binPackingAlgorithm(std::vector<Item>& items, int length,
         for (auto& container : containers) {
             std::pair<bool, int> fitResult = container.canFit(item);
             if (fitResult.first) { // Si l'objet peut s'insérer dans le conteneur
+                // Normalement, il faut chercher le conteneur avec le meilleur ajustement pour l'objet
+                // J'ai pas eu le temps pour ajouter cette optimisation
                 container.addItem(item, fitResult.second);
                 placed = true;
                 break;
